@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONGOSHELL-HANDSON</title>
+</head>
+<body>
+  1.Qurey the collection empolyee and list down all documents.? <br>
+
+   <pre> db.empolyee.find()
+    [
+  {
+    _id: ObjectId("641bf34ca08351d0456b31d6"),
+    firstname: 'john',
+    lastname: 'doe',
+    salary: 25000,
+    department: 'hr',
+    lastcompany: 'X',
+    lastsalary: 10000,
+    overalexp: 2,
+    contact: 1234567890,
+    yeargrad: 2016,
+    gradstream: 'cse'
+  },
+  {
+    _id: ObjectId("641bf6f9a08351d0456b31d7"),
+    firstname: 'rohan',
+    lastname: 'doe',
+    salary: 30000,
+    department: 'technical',
+    lastcompany: 'Y',
+    lastsalary: 15000,
+    overalexp: 1,
+    contact: 1234567891,
+    yeargrad: 2015,
+    gradstream: 'ece'
+  },
+  {
+    _id: ObjectId("641bf7aaa08351d0456b31d8"),
+    firstname: 'jame',
+    lastname: 'doe',
+    salary: 35000,
+    department: 'accounts',
+    lastcompany: 'Z',
+    lastsalary: 25000,
+    overalexp: 1,
+    contact: 1234567892,
+    yeargrad: 2019,
+    gradstream: 'ece'
+  },
+  {
+    _id: ObjectId("641bf816a08351d0456b31d9"),
+    firstname: 'sao',
+    lastname: 'avika',
+    salary: 30000,
+    department: 'sales',
+    lastcompany: 'Y',
+    lastsalary: 15000,
+    overalexp: 2,
+    contact: 1234567893,
+    yeargrad: 2015,
+    gradstream: 'cse'
+  },
+  {
+    _id: ObjectId("641bf87ca08351d0456b31da"),
+    firstname: 'jame',
+    lastname: 'roh',
+    salary: 35000,
+    department: 'accounts',
+    lastcompany: 'Z',
+    lastsalary: 15000,
+    overalexp: 2,
+    contact: 1234567894,
+    yeargrad: 2019,
+    gradstream: 'eee'
+  },
+  {
+    _id: ObjectId("641bf8fba08351d0456b31db"),
+    firstname: 'rohan',
+    lastname: 'jame',
+    salary: 30000,
+    department: 'technical',
+    lastcompany: 'Y',
+    lastsalary: 15000,
+    overalexp: 1,
+    contact: 1234567895,
+    yeargrad: 2015,
+    gradstream: 'cse'
+  },
+  {
+    _id: ObjectId("641bf984a08351d0456b31dc"),
+    firstname: 'jame',
+    lastname: 'doe',
+    salary: 35000,
+    department: 'accounts',
+    lastcompany: 'Z',
+    lastsalary: 20000,
+    overalexp: 1,
+    contact: 1234567896,
+    yeargrad: 2019,
+    gradstream: 'ece'
+  },
+  {
+    _id: ObjectId("641bfa2ba08351d0456b31dd"),
+    firstname: 'jame',
+    lastname: 'doe',
+    salary: 35000,
+    department: 'technical',
+    lastcompany: 'Z',
+    lastsalary: 150000,
+    overalexp: 2,
+    contact: 1234567897,
+    yeargrad: 2019,
+    gradstream: 'eee'
+  }
+] 
+</pre>
+ 
+2.Qurey the collection empolyee and list the empolyee who are having salary more than 30000 ? <br>
+
+ 
+ <pre>db.empolyee.find({"salary":{'$gt':30000}})
+  [
+    {
+      _id: ObjectId("641bf7aaa08351d0456b31d8"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 25000,
+      overalexp: 1,
+      contact: 1234567892,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bf87ca08351d0456b31da"),
+      firstname: 'jame',
+      lastname: 'roh',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567894,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    },
+    {
+      _id: ObjectId("641bf984a08351d0456b31dc"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 20000,
+      overalexp: 1,
+      contact: 1234567896,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bfa2ba08351d0456b31dd"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Z',
+      lastsalary: 150000,
+      overalexp: 2,
+      contact: 1234567897,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    }
+  ] </pre>
+
+3.Qurey the collection empolyee and list empolyee who are having exp.more than two year ? <br>
+
+<pre>shiva>  db.empolyee.find({"overalexp":{'$gte':2}})
+  [
+    {
+      _id: ObjectId("641bf34ca08351d0456b31d6"),
+      firstname: 'john',
+      lastname: 'doe',
+      salary: 25000,
+      department: 'hr',
+      lastcompany: 'X',
+      lastsalary: 10000,
+      overalexp: 2,
+      contact: 1234567890,
+      yeargrad: 2016,
+      gradstream: 'cse'
+    },
+    {
+      _id: ObjectId("641bf816a08351d0456b31d9"),
+      firstname: 'sao',
+      lastname: 'avika',
+      salary: 30000,
+      department: 'sales',
+      lastcompany: 'Y',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567893,
+      yeargrad: 2015,
+      gradstream: 'cse'
+    },
+    {
+      _id: ObjectId("641bf87ca08351d0456b31da"),
+      firstname: 'jame',
+      lastname: 'roh',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567894,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    },
+    {
+      _id: ObjectId("641bfa2ba08351d0456b31dd"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Z',
+      lastsalary: 150000,
+      overalexp: 2,
+      contact: 1234567897,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    }
+  ] 
+  </pre>
+
+
+4.Qurey the collection empolyee and list empolyee who are having salary 30000 upadate those employess salar to 35000 ? <br>
+
+
+<pre>db.empolyee.updateMany({"salary":30000},{'$set':{"salary":35000}})
+  {
+    acknowledged: true,
+    insertedId: null,
+    matchedCount: 3,
+    modifiedCount: 3,
+    upsertedCount: 0
+  }
+  shiva> db.empolyee.find()
+  [
+    {
+      _id: ObjectId("641bf34ca08351d0456b31d6"),
+      firstname: 'john',
+      lastname: 'doe',
+      salary: 25000,
+      department: 'hr',
+      lastcompany: 'X',
+      lastsalary: 10000,
+      overalexp: 2,
+      contact: 1234567890,
+      yeargrad: 2016,
+      gradstream: 'cse'
+    },
+    {
+      _id: ObjectId("641bf6f9a08351d0456b31d7"),
+      firstname: 'rohan',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Y',
+      lastsalary: 15000,
+      overalexp: 1,
+      contact: 1234567891,
+      yeargrad: 2015,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bf7aaa08351d0456b31d8"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 25000,
+      overalexp: 1,
+      contact: 1234567892,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bf816a08351d0456b31d9"),
+      firstname: 'sao',
+      lastname: 'avika',
+      salary: 35000,
+      department: 'sales',
+      lastcompany: 'Y',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567893,
+      yeargrad: 2015,
+      gradstream: 'cse'
+    },
+    {
+      _id: ObjectId("641bf87ca08351d0456b31da"),
+      firstname: 'jame',
+      lastname: 'roh',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567894,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    },
+    {
+      _id: ObjectId("641bf8fba08351d0456b31db"),
+      firstname: 'rohan',
+      lastname: 'jame',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Y',
+      lastsalary: 15000,
+      overalexp: 1,
+      contact: 1234567895,
+      yeargrad: 2015,
+      gradstream: 'cse'
+    },
+    {
+      _id: ObjectId("641bf984a08351d0456b31dc"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 20000,
+      overalexp: 1,
+      contact: 1234567896,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bfa2ba08351d0456b31dd"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Z',
+      lastsalary: 150000,
+      overalexp: 2,
+      contact: 1234567897,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    }
+  ]</pre>
+
+5.Qurey the collection empolyee and list empolyee who are having exp.more than one year and grduted after 2015 ? <br>
+
+<pre>db.empolyee.find({"overalexp":{'$gt':1},"yeargrad":{'$gt':2015}})
+  [
+    {
+      _id: ObjectId("641bf34ca08351d0456b31d6"),
+      firstname: 'john',
+      lastname: 'doe',
+      salary: 25000,
+      department: 'hr',
+      lastcompany: 'X',
+      lastsalary: 10000,
+      overalexp: 2,
+      contact: 1234567890,
+      yeargrad: 2016,
+      gradstream: 'cse'
+    },
+    {
+      _id: ObjectId("641bf87ca08351d0456b31da"),
+      firstname: 'jame',
+      lastname: 'roh',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567894,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    },
+    {
+      _id: ObjectId("641bfa2ba08351d0456b31dd"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Z',
+      lastsalary: 150000,
+      overalexp: 2,
+      contact: 1234567897,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    }
+  ]</pre>
+
+
+6.Qurey the collection empolyee and delete the documents whose last company is "Y" ? <br>
+
+<pre>db.empolyee.deleteMany({"lastcompany":"Y"})
+  { acknowledged: true, deletedCount: 3 }
+  shiva> db.empolyee.find()
+  [
+    {
+      _id: ObjectId("641bf34ca08351d0456b31d6"),
+      firstname: 'john',
+      lastname: 'doe',
+      salary: 25000,
+      department: 'hr',
+      lastcompany: 'X',
+      lastsalary: 10000,
+      overalexp: 2,
+      contact: 1234567890,
+      yeargrad: 2016,
+      gradstream: 'cse'
+    },
+    {
+      _id: ObjectId("641bf7aaa08351d0456b31d8"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 25000,
+      overalexp: 1,
+      contact: 1234567892,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bf87ca08351d0456b31da"),
+      firstname: 'jame',
+      lastname: 'roh',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567894,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    },
+    {
+      _id: ObjectId("641bf984a08351d0456b31dc"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 20000,
+      overalexp: 1,
+      contact: 1234567896,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bfa2ba08351d0456b31dd"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Z',
+      lastsalary: 150000,
+      overalexp: 2,
+      contact: 1234567897,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    }
+  ]</pre>
+ 7. Qurey the collection and list the documents who are having salary 30000 to 35000? <br>
+
+<pre> db.empolyee.find({"salary":{'$in':[30000,35000]}})
+  [
+    {
+      _id: ObjectId("641bf7aaa08351d0456b31d8"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 25000,
+      overalexp: 1,
+      contact: 1234567892,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bf87ca08351d0456b31da"),
+      firstname: 'jame',
+      lastname: 'roh',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 15000,
+      overalexp: 2,
+      contact: 1234567894,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    },
+    {
+      _id: ObjectId("641bf984a08351d0456b31dc"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'accounts',
+      lastcompany: 'Z',
+      lastsalary: 20000,
+      overalexp: 1,
+      contact: 1234567896,
+      yeargrad: 2019,
+      gradstream: 'ece'
+    },
+    {
+      _id: ObjectId("641bfa2ba08351d0456b31dd"),
+      firstname: 'jame',
+      lastname: 'doe',
+      salary: 35000,
+      department: 'technical',
+      lastcompany: 'Z',
+      lastsalary: 150000,
+      overalexp: 2,
+      contact: 1234567897,
+      yeargrad: 2019,
+      gradstream: 'eee'
+    }
+  ]
+  shiva>
+  
+  
+  
+  </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
